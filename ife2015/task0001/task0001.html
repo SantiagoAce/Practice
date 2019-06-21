@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task0001</title>
+    <link rel="stylesheet" href="styles/task0001.css">
+</head>
+<body>
+    <h1>SantiagoAce</h1>
+    <ul>
+        <li><a href="https://github.com/SantiagoAce/Practice-ife2015/blob/master/task0001.html">HomePage</a></li>
+        <li><a href="https://weibo.com/u/2864700554/home?topnav=1&wvr=6">Blog</a></li>
+    </ul>
+    <h2>前端学习ing...</h2>
+    <p>按照计划学习，加油！</p>
+    <img src="images/001.jpg" alt="这是一张图片">
+
+    <!-- 6.盒模型及定位 -->
+    <!-- 用两种方法来实现一个背景色为红色、宽度为960px的<DIV>在浏览器中居中 -->
+    <div class="flexBox">
+        <div id="six-one"></div>
+    </div>
+
+    <!-- 不使用border-radius的情况下实现一个可复用的高度和宽度都自适应的圆角矩形 -->
+    <div class="bor">
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+    </div>
+
+    <div class="mid">
+        <p>文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
+    </div>
+
+    <div class="bor">
+        <div class="b4"></div>
+        <div class="b3"></div>
+        <div class="b2"></div>
+        <div class="b1"></div>
+    </div>
+
+    <!-- 用两种不同的方法来实现一个两列布局，其中左侧部分宽度固定、右侧部分宽度随浏览器宽度的变化而自适应变化 -->
+    <div class="box-1">
+        <div class="left-1"></div>
+        <div class="right-1"></div>
+    </div>
+
+    <div class="box-2">
+        <div class="left-2"></div>
+        <div class="right-2"></div>
+    </div>
+
+    <!-- 用两种不同的方式来实现一个三列布局，其中左侧和右侧的部分宽度固定，中间部分宽度随浏览器宽度的变化而自适应变化 -->
+    
+    <!-- flex 布局 -->
+    <div id="box-3">
+        <div id="left-3"></div>
+        <div id="center-3"></div>
+        <div id="right-3"></div>
+    </div>
+
+    <!-- 双飞翼布局 -->
+    <div id="box-4">
+        <div id="main-4" class="col-4">
+            <div id="main-wrap"> #main </div>
+        </div>
+        <div id="left-4" class="col-4"> #left </div>
+        <div id="right-4" class="col-4"> #right </div>
+    </div>
+
+    <!-- 圣杯布局 -->
+    <section class="wrapper-5">
+        <section class="col-5 main-5"> #main </section>
+        <aside class="col-5 left-5"> #left </aside>
+        <aside class="col-5 right-5"> #right </aside>
+    </section>
+
+    <!-- 实现一个浮动布局，红色容器中每一行的蓝色容器数量随着浏览器宽度的变化而变化 -->
+    <div id="float-container">
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+        <div class="float-element"></div>
+    </div>
+
+</body>
+</html>

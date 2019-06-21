@@ -1,0 +1,228 @@
+6.盒模型及定位
+
+* 用两种方法实现背景为红色、宽度为960px的<DIV>在浏览器中居中
+
+    1. 使用水平居中
+        #id {
+            width: 960px;
+            height: 15px;
+            margin: 0 auto; /*设置左右外边距auto*/
+            background-color: red;
+        }
+
+        <div id="id"></div>
+
+    2. 使用垂直居中
+        .class {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #id {
+            width: 960px;
+            height: 15px;
+            background-color: red;
+        }
+
+        <div class="class">
+            <div id="id"></div>
+        </div>
+
+* 不使用border-radius的情况下实现一个可复用的高度和宽度都自适应的圆角矩形
+
+    HTML:
+        <div class="bor">
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4"></div>
+        </div>
+
+        <div class="mid">
+            <p>文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
+        </div>
+
+        <div class="bor">
+            <div class="b4"></div>
+            <div class="b3"></div>
+            <div class="b2"></div>
+            <div class="b1"></div>
+        </div>
+
+    CSS:
+        .bor div {
+            height: 1px;
+        }
+        .b1 {
+            margin: 0 3px;
+            background-color: black;
+        }
+        .b2, .b3, .b4, .mid {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        .b2 {
+            margin: 0 2px;
+            /* background-color: blue; */
+        }
+        .b3 {
+            margin: 0 1px;
+            /* background-color: blueviolet; */
+        }
+        .b4 {
+            margin: 0 1px;
+            /* background-color: darkorange; */
+        }
+        .mid p {
+            margin: 0;
+            padding: 0 10px;
+            font-size: 12px;
+            line-height: 24px;
+            white-space: pre-wrap;
+        }
+
+* 用两种不同的方法来实现一个两列布局，其中左侧部分宽度固定、右侧部分宽度随浏览器宽度的变化而自适应变化 
+
+    1. position 定位布局
+        CSS：
+            .box-1 {
+                position: relative;
+            }
+            .left-1 {
+                position: absolute;
+                left: 0;
+                width: 200px;
+            }
+            .right-1 {
+                margin-left: 200px;
+            }
+
+        HTML：
+            <div class="box-1">
+                <div class="left-1"></div>
+                <div class="right-1"></div>
+            </div>
+
+    2. float 浮动布局
+        CSS：
+            .box-2 {
+                margin-top: 10px;
+                border: 2px solid #223344;
+            }
+            .left-2 {
+                float: left;
+                width: 200px;
+                height: 150px;
+                background-color: yellow;
+            }
+            .right-2 {
+                margin-left: 200px;
+                height: 150px;
+                background-color: #BFEFFF;
+            }
+            
+        HTML：
+            <div class="box-2">
+                <div class="left-2"></div>
+                <div class="right-2"></div>
+            </div>
+
+* 用两种不同的方式来实现一个三列布局，其中左侧和右侧的部分宽度固定，中间部分宽度随浏览器宽度的变化而自适应变化
+
+    1. flex 布局：将父元素box设为 display:flex;可将box设置为弹性盒模型进行布局
+        CSS：
+            #box {
+                display: flex;
+            }
+            #left, #right {
+                width: 200px;
+                height: 150px;
+                margin: 5px;
+            }
+            #center {
+                flex: 1;
+                height: 150px;
+                margin: 5px;
+            }
+            
+        HTML:
+            <div id="box">
+                <div id="left"></div>
+                <div id="center"></div>
+                <div id="right"></div>
+            </div>
+
+    2. 双飞翼布局：在HTML中，中间 main-4 部分写在前面，因为要优先渲染
+        CSS：
+            .col-4 {
+                float:left;
+            }
+            #main-4 {
+                width: 100%;
+                height: 150px;
+            }
+            #main-wrap {
+                margin: 0 200px; /* 与圣杯布局最大的区别 */
+            }
+            #left-4, #right-4 {
+                width: 200px;
+                height: 150px;
+            }
+            #left-4 {
+                margin-left: -100%;
+            }
+            #right-4 {
+                margin-left: 200px;
+            }
+        
+        HTML：
+            <div id="box-4">
+                <div id="main-4" class="col-4">
+                    <div id="main-wrap"></div>
+                </div>
+                <div id="left-4"></div>
+                <div id="right-4"></div>
+            </div>
+
+    3. 圣杯布局
+        CSS：
+        .wrapper-5 {
+            padding: 0 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        .col-5 {
+            float: left;
+        }
+        .main-5 {
+            width: 100%;
+            height: 150px;
+        }
+        .left-5, .right-5 {
+            width: 200px;
+            height: 150px;
+        }
+        .left-5 {
+            margin-left: -100%;
+            left: -200px;
+        }
+        .right-5 {
+            margin-left: -200px;
+            right: -200;
+        }
+
+        HTML：
+            <section class="wrapper-5">
+                <section class="col-5 main-5"> #main </section>
+                <aside class="col-5 left-5"> #left </aside>
+                <aside class="col-5 right-5"> #right </aside>
+            </section>
+
+    参考：https://blog.csdn.net/a18792627168/article/details/79686746
+
+* 实现一个浮动布局，红色容器中每一行的蓝色容器数量随着浏览器宽度的变化而变化 
+
+    CSS：
+
+    HTML：
+        
